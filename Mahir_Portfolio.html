@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mamun-Or-Rashid Mahir | Data & Strategy Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'], // More modern than Inter
+                        dancing: ['"Dancing Script"', 'cursive'],
+                    },
+                    colors: {
+                        primary: '#06b6d4', // Cyan
+                        secondary: '#ec4899', // Pink
+                        darkbg: '#0f172a', // Slate 900
+                        cardbg: '#1e293b', // Slate 800
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Glassmorphism Utilities */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #06b6d4, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Styling for the skill icon cards */
+        .skill-card {
+            /* Increased padding for better filling of the card space */
+            @apply p-6 md:p-8 rounded-2xl shadow-lg border border-gray-700 transition-transform duration-200 hover:scale-[1.05] flex flex-col items-center justify-center space-y-3 text-center;
+        }
+        /* Style for the timeline dots */
+        .timeline-dot {
+            left: -13px; /* Position relative to the left edge of the parent div */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-[#0b1121] text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300 overflow-x-hidden">
+
+    <nav class="fixed w-full top-0 z-50 glass-nav transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-dancing">
+                Mahir Rashid
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Home</a>
+                <a href="#about" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">About</a>
+                <a href="#experience" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Experience</a>
+                <a href="#skills" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Skills</a>
+                <a href="#projects" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Projects</a>
+                <!-- NEW TRAINING LINK ADDED -->
+                <a href="#specialized-training" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Training</a>
+                <!-- Education and Certificates still link to the same academic section -->
+                <a href="#academic-history" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Education</a>
+                <a href="#academic-history" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Certificates</a>
+                
+                <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-cyan-600 text-white font-bold text-sm shadow-lg hover:shadow-cyan-500/50 transition-all transform hover:scale-105">
+                    Let's Talk
+                </a>
+
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition-colors">
+                    <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                    <i data-lucide="sun" class="w-5 h-5 hidden dark:inline text-yellow-400"></i>
+                </button>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="p-2 text-primary">
+                    <i data-lucide="menu" class="w-8 h-8"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden glass-card absolute w-full border-t border-gray-700">
+            <div class="flex flex-col p-4 space-y-4">
+                <a href="#home" class="block py-2 text-center hover:text-primary">Home</a>
+                <a href="#about" class="block py-2 text-center hover:text-primary">About</a>
+                <a href="#projects" class="block py-2 text-center hover:text-primary">Projects</a>
+                <a href="#contact" class="block py-2 text-center text-primary font-bold">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 flex items-center min-h-screen overflow-hidden">
+            <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob dark:mix-blend-lighten"></div>
+            <div class="absolute top-0 -right-4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 dark:mix-blend-lighten"></div>
+            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000 dark:mix-blend-lighten"></div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right" data-aos-duration="1000">
+                        <!-- Adjusted the size of "Hi, I'm" to be smaller (text-3xl) -->
+                        <p class="text-3xl md:text-4xl font-extrabold text-white mb-2 leading-tight">
+                            Hi, I'm 
+                        </p>
+                        <!-- Ensured the Name remains the biggest font size -->
+                        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                            <span class="text-gradient">Md. Mamun-Or-Rashid</span>
+                        </h1>
+                        <div class="text-2xl md:text-3xl font-light text-gray-400 mb-8 h-12">
+                            Expert in <span id="typed-text" class="text-white font-semibold border-b-2 border-primary"></span>
+                        </div>
+                        <p class="text-gray-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                            Transforming complex data into strategic business insights. I help organizations make smarter decisions through advanced analytics and visualization.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                            <a href="#projects" class="px-8 py-4 bg-gradient-to-r from-primary to-cyan-600 text-white font-bold rounded-xl shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transition-all transform hover:-translate-y-1">
+                                View Portfolio
+                            </a>
+                            <a href="https://drive.google.com/uc?export=download&id=1PEZ0snsafB4BIl-2pBtTUwABAf9hq1D7" class="px-8 py-4 glass-card text-white font-semibold rounded-xl border border-gray-600 hover:border-primary hover:text-primary transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                                <i data-lucide="download" class="w-5 h-5"></i> Download CV
+                            </a>
+                        </div>
+                        
+                        <div class="mt-12 flex items-center justify-center md:justify-start space-x-6 text-gray-400">
+                            <a href="https://www.linkedin.com/in/md-mamun-or-rashid-mahir-8b8327126/" target="_blank" class="hover:text-primary transition-colors transform hover:scale-110"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                            <a href="https://github.com/Mamun-Rashid-Mahir" target="_blank" class="hover:text-primary transition-colors transform hover:scale-110"><i data-lucide="github" class="w-6 h-6"></i></a>
+                            <a href="mailto:mahirrashid011@gmail.com" class="hover:text-primary transition-colors transform hover:scale-110"><i data-lucide="mail" class="w-6 h-6"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 flex justify-center relative" data-aos="fade-left" data-aos-duration="1000">
+                        <div class="relative w-72 h-72 md:w-96 md:h-96 animate-float">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-2xl opacity-50"></div>
+                            <img src="https://i.imgur.com/QOkNwXa.jpg" alt="Profile" class="relative w-full h-full object-cover rounded-full border-4 border-white/10 shadow-2xl z-10">
+                            
+                            <div class="absolute -right-4 top-10 glass-card p-3 rounded-lg flex items-center gap-3 animate-bounce z-20" style="animation-duration: 3s;">
+                                <div class="bg-blue-500/20 p-2 rounded-full text-blue-400"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></div>
+                                <div>
+                                    <p class="text-xs text-gray-400">Experience</p>
+                                    <p class="text-sm font-bold text-white">4+ Years</p>
+                                </div>
+                            </div>
+                             <div class="absolute -left-4 bottom-20 glass-card p-3 rounded-lg flex items-center gap-3 animate-bounce z-20" style="animation-duration: 4s;">
+                                <div class="bg-pink-500/20 p-2 rounded-full text-pink-400"><i data-lucide="code-2" class="w-5 h-5"></i></div>
+                                <div>
+                                    <p class="text-xs text-gray-400">Projects</p>
+                                    <p class="text-sm font-bold text-white">5+ Done</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 relative">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">About <span class="text-gradient">Me</span></h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                </div>
+
+                <div class="glass-card max-w-5xl mx-auto p-8 md:p-12 rounded-2xl shadow-2xl border border-gray-700/50" data-aos="zoom-in">
+                    <p class="text-lg md:text-xl leading-relaxed text-gray-300 text-justify mb-8 font-light">
+                        I’m passionate about turning data into meaningful stories that actually help people make smarter decisions. I enjoy exploring data, building dashboards, analyzing trends, and improving processes so teams can work more efficiently and confidently. <br><br>
+                        Over the past few years, I’ve worked across <span class="text-primary font-semibold">banking, consulting, and EdTech</span> — experiences that taught me how real business challenges operate behind the scenes. I’ve created KPI dashboards, supported strategic projects, streamlined workflows, and delivered insights that genuinely improved decision-making. <br><br>
+                        At the core, I love making data easy to understand and useful for everyone. Whether it’s simplifying a complex dataset, creating a clean visualization, or helping teams make data-driven decisions — I always aim to add value with clarity and creativity.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 rounded-xl bg-darkbg border border-gray-700 hover:border-primary transition-colors text-center group">
+                            <h3 class="text-4xl font-bold text-white group-hover:text-primary transition-colors">4+</h3>
+                            <p class="text-gray-400 mt-2">Years Experience</p>
+                        </div>
+                        <div class="p-6 rounded-xl bg-darkbg border border-gray-700 hover:border-secondary transition-colors text-center group">
+                            <h3 class="text-4xl font-bold text-white group-hover:text-secondary transition-colors">5+</h3>
+                            <p class="text-gray-400 mt-2">Projects Completed</p>
+                        </div>
+                        <div class="p-6 rounded-xl bg-darkbg border border-gray-700 hover:border-primary transition-colors text-center group">
+                            <h3 class="text-4xl font-bold text-white group-hover:text-primary transition-colors">3</h3>
+                            <p class="text-gray-400 mt-2">Core Domains</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-24 bg-darkbg relative">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Work <span class="text-gradient">Experience</span></h2>
+                    <p class="text-gray-400">My professional journey so far</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto relative pl-4 md:pl-0">
+                    <div class="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary to-secondary"></div>
+
+                    <div class="mb-12 flex flex-col md:flex-row items-center justify-between w-full relative" data-aos="fade-up">
+                        <div class="order-1 md:w-5/12 text-left md:text-right mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-white">Strategic Project Analyst</h3>
+                            <p class="text-primary font-semibold">Amar iSchool</p>
+                            <p class="text-sm text-gray-500 mt-1">Oct 2024 - Present</p>
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-gray-900 shadow-xl w-8 h-8 rounded-full border-2 border-primary absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
+                        <div class="order-1 md:w-5/12 px-6 py-4 glass-card rounded-xl border border-gray-700 hover:border-primary transition-all ml-8 md:ml-0">
+                            <ul class="list-disc text-gray-400 text-sm space-y-2 pl-4">
+                                <li>Coordinate strategic projects to ensure timely execution in alignment with organizational objectives.</li>
+                                <li>>Develop and maintain BI reports (Power BI, Excel) to track KPIs and provide actionable insights.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mb-12 flex flex-col md:flex-row-reverse items-center justify-between w-full relative" data-aos="fade-up">
+                        <div class="order-1 md:w-5/12 text-left mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-white">Administrator</h3>
+                            <p class="text-secondary font-semibold">Nippon Koei Bangladesh</p>
+                            <p class="text-sm text-gray-500 mt-1">Oct 2021 - Sep 2024</p>
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-gray-900 shadow-xl w-8 h-8 rounded-full border-2 border-secondary absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
+                        <div class="order-1 md:w-5/12 px-6 py-4 glass-card rounded-xl border border-gray-700 hover:border-secondary transition-all ml-8 md:ml-0">
+                            <ul class="list-disc text-gray-400 text-sm space-y-2 pl-4">
+                                <li>Led strategic initiatives and process improvements, enhancing operational efficiency and aligning with business goals.</li>
+                                <li>Developed BI dashboards (Excel, Power BI) to track KPIs and support decision-making, while coordinating transformation projects for timely, risk-free delivery.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center justify-between w-full relative" data-aos="fade-up">
+                        <div class="order-1 md:w-5/12 text-left md:text-right mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-white">Assistant Officer</h3>
+                            <p class="text-primary font-semibold">IFIC Bank Ltd.</p>
+                            <p class="text-sm text-gray-500 mt-1">Jan 2021 - Oct 2021</p>
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-gray-900 shadow-xl w-8 h-8 rounded-full border-2 border-primary absolute left-0 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1/2 md:translate-y-0 top-0 md:top-auto"></div>
+                        <div class="order-1 md:w-5/12 px-6 py-4 glass-card rounded-xl border border-gray-700 hover:border-primary transition-all ml-8 md:ml-0">
+                            <ul class="list-disc text-gray-400 text-sm space-y-2 pl-4">
+                                <li>Managed banking operations, including account services, fund transfers (e.g. RTGS, Clearing), foreign remittance, and digital banking.</li>
+                                <li>Provided front-line customer service, handled financial products (e.g. FDR, Pay Orders), and ensured compliance with banking procedures.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-24 relative overflow-hidden">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none"></div>
+
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16" data-aos="fade-down">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Technical <span class="text-gradient">Arsenal</span></h2>
+                    <p class="text-gray-400">Tools I use to crunch numbers</p>
+                </div>
+
+                <div class="max-w-6xl mx-auto grid grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Skill 1: Power BI -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                        <i data-lucide="bar-chart-3" class="w-16 h-16 text-yellow-500 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">Power BI</span>
+                    </div>
+                    
+                    <!-- Skill 2: Excel (Advanced - Pivot Tables, VBA) -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                        <i data-lucide="square-kanban" class="w-16 h-16 text-green-500 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">Excel/VBA</span>
+                    </div>
+
+                    <!-- Skill 3: MySQL/SQL -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                        <i data-lucide="database" class="w-16 h-16 text-blue-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">MySQL/SQL</span>
+                    </div>
+
+                    <!-- Skill 4: Python -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="400">
+                        <i data-lucide="code" class="w-16 h-16 text-blue-300 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">Python</span>
+                    </div>
+
+                    <!-- Skill 5: C (Programming) -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="500">
+                        <i data-lucide="cpu" class="w-16 h-16 text-gray-500 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">C Language</span>
+                    </div>
+
+                    <!-- Skill 6: HTML/CSS -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="600">
+                        <i data-lucide="layout" class="w-16 h-16 text-orange-600 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">HTML/CSS</span>
+                    </div>
+                    
+                    <!-- Skill 7: MS Project / Project Management -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="700">
+                        <i data-lucide="gantt-chart" class="w-16 h-16 text-primary group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">MS Project</span>
+                    </div>
+
+                    <!-- Skill 8: Research and Development -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="800">
+                        <i data-lucide="compass" class="w-16 h-16 text-secondary group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">R&D</span>
+                    </div>
+
+                    <!-- Skill 9: Lean / Six Sigma -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="900">
+                        <i data-lucide="layers" class="w-16 h-16 text-yellow-600 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">Lean/Six Sigma</span>
+                    </div>
+
+                    <!-- Skill 10: Adobe Premiere Pro -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="1000">
+                        <i data-lucide="video" class="w-16 h-16 text-purple-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">Premiere Pro</span>
+                    </div>
+
+                    <!-- Skill 11: JIRA (NEW) -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="1100">
+                        <i data-lucide="clipboard-list" class="w-16 h-16 text-blue-500 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">Jira</span>
+                    </div>
+
+                    <!-- Skill 12: GitHub (NEW) -->
+                    <div class="skill-card glass-card hover:bg-white/5 transition-all duration-300 hover:-translate-y-2 group cursor-pointer" data-aos="fade-up" data-aos-delay="1200">
+                        <i data-lucide="github" class="w-16 h-16 text-white group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-gray-300 group-hover:text-white">GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-24 bg-darkbg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Featured <span class="text-gradient">Projects</span></h2>
+                    <p class="text-gray-400">Real-world solutions and analysis</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 (Already complete) -->
+                    <div class="group relative rounded-2xl overflow-hidden glass-card border border-gray-700 hover:border-primary transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20" data-aos="fade-up" data-aos-delay="100">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://i.imgur.com/jEHx4qc.jpeg" alt="Project 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">HealthStat: NY Hospital Analysis</h3>
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-3">In-depth Power BI analysis of Elective Hip Replacement Surgical Stays in NY, focusing on Cost, Revenue, and LOS influencers.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-primary/20 text-primary text-xs font-bold rounded">Power BI</span>
+                                <span class="px-2 py-1 bg-primary/20 text-primary text-xs font-bold rounded">DAX</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-700">
+                                <a href="https://app.powerbi.com/view?r=eyJrIjoiOWMyMWU2OTItMmZjZS00YzQ4LThiYzctMGVlM2Q0YjAzMGM5IiwidCI6IjIxYjhjNDM2LWQwZGMtNDcyMi05NWU4LTFjMmFjZjYwNzBjMSJ9" target="_blank" class="flex items-center text-white hover:text-primary transition-colors">
+                                    <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/Mamun-Rashid-Mahir/HealthStat-NY-Hospital-Analysis.git" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-4 h-4 mr-2"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 (UPDATED LINKS) -->
+                    <div class="group relative rounded-2xl overflow-hidden glass-card border border-gray-700 hover:border-secondary transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/20" data-aos="fade-up" data-aos-delay="200">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/ec4899?text=On+Ongoing" alt="Project 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">Operations Workflow Optimizer</h3>
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-3">Python and VBA automation suite designed to reduce manual data entry time by 40% for banking operations.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Python</span>
+                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">VBA</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-700">
+                                <a href="#" target="_blank" class="flex items-center text-white hover:text-secondary transition-colors">
+                                    <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/Mamun-Rashid-Mahir" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-4 h-4 mr-2"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 (UPDATED LINKS) -->
+                    <div class="group relative rounded-2xl overflow-hidden glass-card border border-gray-700 hover:border-green-500 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20" data-aos="fade-up" data-aos-delay="300">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=On+Ongoing" alt="Project 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">LMS Project Coordination</h3>
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-3">Managed the rollout of a Learning Management System, ensuring all stakeholder requirements were met on time.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded">Jira</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded">Agile</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-700">
+                                <a href="#" target="_blank" class="flex items-center text-white hover:text-green-400 transition-colors">
+                                    <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/Mamun-Rashid-Mahir" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-4 h-4 mr-2"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 (UPDATED LINKS) -->
+                    <div class="group relative rounded-2xl overflow-hidden glass-card border border-gray-700 hover:border-primary transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20" data-aos="fade-up" data-aos-delay="400">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/06b6d4?text=In+Progress" alt="Project 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Strategic Goal Alignment Dashboard</h3>
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-3">Developed a reporting tool for executives to track progress against quarterly and annual strategic objectives using MS Project data.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-primary/20 text-primary text-xs font-bold rounded">MS Project</span>
+                                <span class="px-2 py-1 bg-primary/20 text-primary text-xs font-bold rounded">Strategic Planning</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-700">
+                                <a href="#" target="_blank" class="flex items-center text-white hover:text-primary transition-colors">
+                                    <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/Mamun-Rashid-Mahir" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-4 h-4 mr-2"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 (UPDATED LINKS) -->
+                    <div class="group relative rounded-2xl overflow-hidden glass-card border border-gray-700 hover:border-secondary transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/20" data-aos="fade-up" data-aos-delay="500">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/ec4899?text=In+Progress" alt="Project 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">ML Foundations & Data Prep Pipeline</h3>
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-3">Exploratory Data Analysis (EDA) and cleaning pipeline built in Python as part of a Data Science training module.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Python</span>
+                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Machine Learning</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-700">
+                                <a href="#" target="_blank" class="flex items-center text-white hover:text-secondary transition-colors">
+                                    <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/Mamun-Rashid-Mahir" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-4 h-4 mr-2"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 (UPDATED LINKS) -->
+                    <div class="group relative rounded-2xl overflow-hidden glass-card border border-gray-700 hover:border-green-500 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/20" data-aos="fade-up" data-aos-delay="600">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=Coming+Soon" alt="Project 6" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
+                        </div>
+                        <div class="p-6 relative">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Lean Process Analysis (Banking Ops)</h3>
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-3">Application of Lean principles to map and optimize the foreign remittance processing workflow at IFIC Bank Ltd.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded">Lean</span>
+                                <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded">Process Improvement</span>
+                            </div>
+                            <div class="flex justify-between items-center pt-4 border-t border-gray-700">
+                                <a href="#" target="_blank" class="flex items-center text-white hover:text-green-400 transition-colors">
+                                    <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/Mamun-Rashid-Mahir" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                                    <i data-lucide="github" class="w-4 h-4 mr-2"></i> Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <!-- NEW SPECIALIZED TRAINING SECTION -->
+        <section id="specialized-training" class="py-24 bg-darkbg relative">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <div data-aos="fade-right" class="lg:col-span-2">
+                        <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                            <i data-lucide="book-open-text" class="text-primary"></i> Specialized <span class="text-gradient">Training</span>
+                        </h2>
+                        <p class="text-gray-400 mb-12">In-depth programs focusing on advanced technical and strategic skills.</p>
+
+                        <div class="space-y-6 max-w-4xl mx-auto">
+                            <!-- Training 1: Interactive Cares - Data Analysis -->
+                            <a href="YOUR_DATA_ANALYSIS_CERT_URL" target="_blank" class="block">
+                                <div class="glass-card p-6 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer border-l-4 border-primary">
+                                    <div>
+                                        <h4 class="font-bold text-white text-xl group-hover:text-primary transition-colors">Data Analysis Course (Interactive Cares)</h4>
+                                        <p class="text-sm text-gray-400 mt-1">Practical experience in Excel, Power BI, SQL, Python (2025)</p>
+                                        <p class="text-xs text-gray-500 mt-2">Skills: Excel, Power BI, SQL, Python</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
+                                </div>
+                            </a>
+
+                            <!-- Training 2: NACTAR - Machine Learning -->
+                            <a href="YOUR_MACHINE_LEARNING_CERT_URL" target="_blank" class="block">
+                                <div class="glass-card p-6 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer border-l-4 border-secondary">
+                                    <div>
+                                        <h4 class="font-bold text-white text-xl group-hover:text-secondary transition-colors">Machine Learning and Data Science (NACTAR)</h4>
+                                        <p class="text-sm text-gray-400 mt-1">Project management, Python programming, machine learning, data processing (2025)</p>
+                                        <p class="text-xs text-gray-500 mt-2">Skills: Python, Machine Learning, Data Processing, Project Management</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+        
+        <!-- CONSOLIDATED ACADEMIC HISTORY SECTION (#academic-history) -->
+        <section id="academic-history" class="py-24 relative">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    
+                    <!-- LEFT COLUMN: EDUCATION (Academic History) -->
+                    <div data-aos="fade-right">
+                        <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                            <i data-lucide="graduation-cap" class="text-primary"></i> Academic <span class="text-gradient">History</span>
+                        </h2>
+                        <p class="text-gray-400 mb-12">Formal academic qualifications, including university and school records.</p>
+
+                        <div class="space-y-6">
+                            <!-- Education Item 1: M.Sc. -->
+                            <div class="glass-card p-6 rounded-xl border-l-4 border-primary">
+                                <h3 class="text-xl font-bold text-white">M.Sc. in Computer Science and Engineering (CSE)</h3>
+                                <p class="text-primary text-sm font-semibold">BRAC University</p>
+                                <p class="text-gray-400 text-sm mt-2">2024 - 2025</p>
+                            </div>
+                            <!-- Education Item 2: B.Sc. -->
+                            <div class="glass-card p-6 rounded-xl border-l-4 border-gray-600 hover:border-primary transition-colors">
+                                <h3 class="text-xl font-bold text-white">B.Sc. in Computer Science and Engineering (CSE)</h3>
+                                <p class="text-primary text-sm font-semibold">Ahsanullah University of Science and Technology (AUST)</p>
+                                <p class="text-gray-400 text-sm mt-2">2015 - 2019</p>
+                            </div>
+                             <!-- Education Item 3: HSC (Higher Secondary Certificate) -->
+                            <div class="glass-card p-6 rounded-xl border-l-4 border-gray-600 hover:border-primary transition-colors">
+                                <h3 class="text-xl font-bold text-white">Higher Secondary Certificate (HSC)</h3>
+                                <p class="text-primary text-sm font-semibold">Birshrestha Noor Mohammad Rifles Public College</p>
+                                <p class="text-gray-400 text-sm mt-2">2011 - 2013</p>
+                            </div>
+                            <!-- Education Item 4: SSC (Secondary School Certificate) -->
+                            <div class="glass-card p-6 rounded-xl border-l-4 border-gray-600 hover:border-primary transition-colors">
+                                <h3 class="text-xl font-bold text-white">Secondary School Certificate (SSC)</h3>
+                                <p class="text-primary text-sm font-semibold">Motijheel Model High School & College</p>
+                                <p class="text-gray-400 text-sm mt-2">2007 - 2011</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- RIGHT COLUMN: CERTIFICATES (Training History) -->
+                    <div data-aos="fade-left">
+                        <!-- CHANGED HEADLINE HERE -->
+                        <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                            <i data-lucide="award" class="text-secondary"></i> <span class="text-gradient">Certificates</span>
+                        </h2>
+                        <p class="text-gray-400 mb-12">Professional development and short-form certifications.</p>
+
+                        <div class="space-y-6">
+                            
+                            <!-- CERTIFICATE 3 (Business Analysis) -->
+                            <a href="YOUR_BUSINESS_ANALYSIS_CERT_URL" target="_blank" class="block">
+                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
+                                    <div>
+                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Business Analysis</h4>
+                                        <p class="text-xs text-gray-400">Microsoft & LinkedIn (2025)</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- CERTIFICATE 4 (Data Analysis - Short Form) -->
+                            <a href="YOUR_DATA_ANALYSIS_MICROSOFT_CERT_URL" target="_blank" class="block">
+                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
+                                    <div>
+                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Data Analysis</h4>
+                                        <p class="text-xs text-gray-400">Microsoft & LinkedIn (2025)</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
+                                </div>
+                            </a>
+                            
+                            <!-- CERTIFICATE 5 (Leadership & HR) -->
+                            <a href="YOUR_LEADERSHIP_CERT_URL" target="_blank" class="block">
+                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
+                                    <div>
+                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Leadership & HR</h4>
+                                        <p class="text-xs text-gray-400">Microsoft & LinkedIn (2025)</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
+                                </div>
+                            </a>
+
+                            <!-- CERTIFICATE 6 (Project Management) -->
+                            <a href="YOUR_PROJECT_MANAGEMENT_CERT_URL" target="_blank" class="block">
+                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
+                                    <div>
+                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Project Management</h4>
+                                        <p class="text-xs text-gray-400">Microsoft & LinkedIn (2025)</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
+                                </div>
+                            </a>
+
+                            <!-- CERTIFICATE 7 (Others) -->
+                            <a href="YOUR_OTHERS_CERT_URL" target="_blank" class="block">
+                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
+                                    <div>
+                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Others (Strategic Planning, Process Mngmt)</h4>
+                                        <p class="text-xs text-gray-400">LinkedIn & GitHub (2025)</p>
+                                    </div>
+                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+             </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-gradient-to-b from-darkbg to-black relative">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card max-w-4xl mx-auto rounded-3xl p-8 md:p-16 border border-gray-700/50 shadow-2xl relative overflow-hidden" data-aos="zoom-in-up">
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-primary rounded-full blur-3xl opacity-20"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h2 class="text-4xl font-bold text-white mb-4">Let's Work <span class="text-gradient">Together</span></h2>
+                            <p class="text-gray-400 mb-8">Have a project in mind or want to discuss data strategy? I'm just a message away.</p>
+                            
+                            <div class="space-y-4">
+                                <a href="mailto:mahirrashid011@gmail.com" class="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors p-3 rounded-lg hover:bg-white/5">
+                                    <div class="bg-primary/20 p-2 rounded-lg text-primary"><i data-lucide="mail" class="w-6 h-6"></i></div>
+                                    <span>mahirrashid011@gmail.com</span>
+                                </a>
+                                <a href="https://linkedin.com/in/md-mamun-or-rashid-mahir-8b8327126/" target="_blank" class="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors p-3 rounded-lg hover:bg-white/5">
+                                    <div class="bg-blue-600/20 p-2 rounded-lg text-blue-500"><i data-lucide="linkedin" class="w-6 h-6"></i></div>
+                                    <span>LinkedIn Profile</span>
+                                </a>
+                                <a href="https://github.com/Mamun-Rashid-Mahir" target="_blank" class="flex items-center space-x-4 text-gray-300 hover:text-white transition-colors p-3 rounded-lg hover:bg-white/5">
+                                    <div class="bg-gray-700/50 p-2 rounded-lg text-white"><i data-lucide="github" class="w-6 h-6"></i></div>
+                                    <span>GitHub Profile</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <form action="https://formspree.io/f/mnnkvpod" method="POST" class="space-y-4 relative z-10">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-1">Name</label>
+                                <input type="text" name="name" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                                <input type="email" name="email" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-1">Message</label>
+                                <textarea name="message" rows="4" required class="w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-primary to-cyan-600 text-white font-bold py-3 rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all transform hover:-translate-y-1">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black py-8 border-t border-gray-800 text-center relative z-10">
+        <p class="text-gray-500 text-sm">
+            &copy; <span id="current-year"></span> Mamun-Or-Rashid Mahir. <br>
+            Designed with <span class="text-red-500">♥</span> & Data.
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Initialize AOS (Animate On Scroll)
+            AOS.init({
+                once: true, // Animation happens only once - while scrolling down
+                offset: 100, // Offset (in px) from the original trigger point
+                duration: 800, // Duration of animation
+            });
+
+            // 2. Initialize Lucide Icons
+            lucide.createIcons();
+
+            // 3. Typed.js
+            var typed = new Typed('#typed-text', {
+                strings: [
+                    'Data Analysis',
+                    'Business Intelligence & Reporting',
+                    'Data Science Foundations',
+                    'Business Analysis & Process Improvement',
+                    'Machine Learning',
+                    'Project Management',
+                    'Strategic Planning & Research Analysis',
+                    'Process Automation' 
+                ],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+            });
+
+            // 4. Footer Year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // 5. Mobile Menu Logic
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+
+            if(btn && menu) {
+                btn.addEventListener('click', () => {
+                    menu.classList.toggle('hidden');
+                });
+                menu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // 6. Theme Toggle Logic
+            const themeBtn = document.getElementById('theme-toggle');
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    // Save preference
+                    if(document.documentElement.classList.contains('dark')) {
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        localStorage.setItem('theme', 'light');
+                    }
+                    // Re-render icons if needed by library, though CSS usually handles display
+                });
+            }
+            
+            // Check Local Storage for Theme
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.remove('dark');
+            } else {
+                document.documentElement.classList.add('dark');
+            }
+        });
+    </script>
+</body>
+</html>
