@@ -87,6 +87,10 @@
         .timeline-dot {
             left: -13px; /* Position relative to the left edge of the parent div */
         }
+        /* Custom styling for certificate images */
+        .cert-image {
+            @apply w-full h-auto object-cover rounded-lg transition-transform duration-300 transform group-hover:scale-[1.02] border border-gray-700/50;
+        }
     </style>
 </head>
 
@@ -104,11 +108,11 @@
                 <a href="#experience" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Experience</a>
                 <a href="#skills" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Skills</a>
                 <a href="#projects" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Projects</a>
-                <!-- NEW TRAINING LINK ADDED -->
+                <!-- Training and Academic links updated -->
                 <a href="#specialized-training" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Training</a>
-                <!-- Education and Certificates still link to the same academic section -->
                 <a href="#academic-history" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Education</a>
-                <a href="#academic-history" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Certificates</a>
+                <!-- Credentials link -->
+                <a href="#credentials" class="nav-link text-sm uppercase tracking-wider font-semibold hover:text-primary transition-colors">Credentials</a>
                 
                 <a href="#contact" class="px-5 py-2 rounded-full bg-gradient-to-r from-primary to-cyan-600 text-white font-bold text-sm shadow-lg hover:shadow-cyan-500/50 transition-all transform hover:scale-105">
                     Let's Talk
@@ -417,7 +421,7 @@
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
                         </div>
                         <div class="p-6 relative">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">Patient Experience & Resource Optimization Dashboard</h3>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">Clinical Spectrup Dashboard</h3>
                             <p class="text-sm text-gray-400 mb-4 line-clamp-3">A comprehensive Power BI solution tracking key patient metrics (Cost/Day, Recovery Rating, Admissions Trends) and diagnosis distribution to inform resource allocation and evaluate treatment effectiveness by age group.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Healthcare BI</span>
@@ -444,7 +448,7 @@
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
                         </div>
                         <div class="p-6 relative">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Patient Experience & Hospital Performance Dashboard</h3>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors">Hospital Patient Insights & Performance Dashboard.pbix</h3>
                             <p class="text-sm text-gray-400 mb-4 line-clamp-3">A comprehensive Power BI solution tracking key patient metrics including total cost, daily cost, recovery ratings, and admissions trends to optimize resource allocation and treatment effectiveness.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded">KPI Tracking</span>
@@ -452,7 +456,7 @@
                                 <span class="px-2 py-1 bg-green-500/20 text-green-400 text-xs font-bold rounded">Optimization</span>
                             </div>
                             <div class="flex justify-between items-center pt-4 border-t border-gray-700">
-                                <a href="https://app.powerbi.com/view?r=eyJrIjoiNWY1NGI5MTktNDNhZC00MjI4LThkYzQtYTU2ZmYxMzJlZjFlIiwidCI6IjIxYjhjNDM2LWQwZGMtNDcyMi05NWU4LTFjMmFjZjYwNzBjMSJ9" target="_blank" class="flex items-center text-white hover:text-green-400 transition-colors">
+                                <a href="https://app.powerbi.com/view?r=eyJrIjoiNWY1NGI5MTktNDNhZC00MjI4LThkYzQtYTU2ZjFmYjRlIiwidCI6IjIxYjhjNDM2LWQwZGMtNDcyMi05NWU4LTFjMmFjZjYwNzBjMSJ9" target="_blank" class="flex items-center text-white hover:text-green-400 transition-colors">
                                     <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo
                                 </a>
                                 <a href="https://github.com/Mamun-Rashid-Mahir/Hospital-Patient-Insights-Performance-Dashboard.git" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
@@ -469,7 +473,7 @@
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
                         </div>
                         <div class="p-6 relative">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Healthcare Intelligence Dashboard (Power BI)</h3>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Healthcare Intelligence Dashboard</h3>
                             <p class="text-sm text-gray-400 mb-4 line-clamp-3">A comprehensive Power BI solution tracking patient metrics (Cost/Day, Recovery, Admissions Trends) and diagnosis distribution to inform resource allocation and evaluate treatment effectiveness by age group.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 <span class="px-2 py-1 bg-primary/20 text-primary text-xs font-bold rounded">Healthcare BI</span>
@@ -487,24 +491,25 @@
                         </div>
                     </div>
                     
-                    <!-- Project 5 (UPDATED LINKS) -->
+                    <!-- Project 5 (APPLIED NEW LINKS) -->
                     <div class="group relative rounded-2xl overflow-hidden glass-card border border-gray-700 hover:border-secondary transition-all duration-500 hover:shadow-2xl hover:shadow-secondary/20" data-aos="fade-up" data-aos-delay="500">
                         <div class="h-48 overflow-hidden">
-                            <img src="https://placehold.co/600x400/1e293b/ec4899?text=Data+Science+Model" alt="Project 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <img src="https://i.imgur.com/hOQ3wCx.jpeg" alt="Project 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
                             <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors"></div>
                         </div>
                         <div class="p-6 relative">
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">ML Foundations & Data Prep Pipeline</h3>
-                            <p class="text-sm text-gray-400 mb-4 line-clamp-3">Exploratory Data Analysis (EDA) and cleaning pipeline built in Python as part of a Data Science training module.</p>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-secondary transition-colors">Business Sales Performance Dashboard</h3>
+                            <p class="text-sm text-gray-400 mb-4 line-clamp-3">A Power BI solution tracking sales performance across product lines, regions, and time periods, allowing stakeholders to identify key drivers and forecasting opportunities.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Python</span>
-                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Machine Learning</span>
+                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Sales Analysis</span>
+                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Forecasting</span>
+                                <span class="px-2 py-1 bg-secondary/20 text-secondary text-xs font-bold rounded">Power BI</span>
                             </div>
                             <div class="flex justify-between items-center pt-4 border-t border-gray-700">
-                                <a href="#" target="_blank" class="flex items-center text-white hover:text-secondary transition-colors">
+                                <a href="https://app.powerbi.com/view?r=eyJrIjoiNmM5NTI4ZmQtNzdkNy00OTI0LTlmZmUtMjc3NjhmZDgyN2ZjIiwidCI6IjIxYjhjNDM2LWQwZGMtNDcyMi05NWU4LTFjMmFjZjYwNzBjMSJ9" target="_blank" class="flex items-center text-white hover:text-secondary transition-colors">
                                     <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Live Demo
                                 </a>
-                                <a href="https://github.com/Mamun-Rashid-Mahir" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
+                                <a href="https://github.com/Mamun-Rashid-Mahir/Business-Sales-Dashboard.git" target="_blank" class="flex items-center text-gray-400 hover:text-white transition-colors">
                                     <i data-lucide="github" class="w-4 h-4 mr-2"></i> Code
                                 </a>
                             </div>
@@ -551,6 +556,23 @@
                         <p class="text-gray-400 mb-12">In-depth programs focusing on advanced technical and strategic skills.</p>
 
                         <div class="space-y-6 max-w-4xl mx-auto">
+                            <!-- Research Publication Sub-section -->
+                            <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                                <i data-lucide="book-open-check" class="w-6 h-6 text-secondary"></i> Research & Publications
+                            </h3>
+                            <div class="glass-card p-6 rounded-xl border-l-4 border-secondary/50">
+                                <h4 class="font-bold text-white text-xl mb-2">A Gender-neutral Approach to Detect Early Alzheimer's Disease</h4>
+                                <p class="text-sm text-gray-400">Published in the International Journal of Advanced Computer Science and Applications (IJACSA), Vol. 10, No. 3, 2019.</p>
+                                <p class="text-xs text-gray-500 mt-2">Focus: Machine Learning (Three-layer NN), Neurodegenerative Disease Detection, Socio-Economic Factors.</p>
+                                <a href="https://thesai.org/Downloads/Volume10No3/Paper_68-A_Gender_Neutral_Approach_to_Detect_Early_Alzheimers_Disease.pdf" target="_blank" class="text-primary hover:text-secondary text-sm mt-3 inline-flex items-center">
+                                    View Full Paper <i data-lucide="external-link" class="w-4 h-4 ml-1"></i>
+                                </a>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-white mt-10 mb-4 flex items-center gap-2">
+                                <i data-lucide="code-square" class="w-6 h-6 text-primary"></i> Core Technology Courses
+                            </h3>
+                            
                             <!-- Training 1: Interactive Cares - Data Analysis -->
                             <a href="YOUR_DATA_ANALYSIS_CERT_URL" target="_blank" class="block">
                                 <div class="glass-card p-6 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer border-l-4 border-primary">
@@ -585,14 +607,14 @@
              <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     
-                    <!-- LEFT COLUMN: EDUCATION (Academic History) -->
-                    <div data-aos="fade-right">
+                    <!-- ACADEMIC HISTORY ONLY -->
+                    <div data-aos="fade-right" class="lg:col-span-2">
                         <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
                             <i data-lucide="graduation-cap" class="text-primary"></i> Academic <span class="text-gradient">History</span>
                         </h2>
                         <p class="text-gray-400 mb-12">Formal academic qualifications, including university and school records.</p>
 
-                        <div class="space-y-6">
+                        <div class="space-y-6 max-w-4xl mx-auto">
                             <!-- Education Item 1: M.Sc. -->
                             <div class="glass-card p-6 rounded-xl border-l-4 border-primary">
                                 <h3 class="text-xl font-bold text-white">M.Sc. in Computer Science and Engineering (CSE)</h3>
@@ -620,75 +642,96 @@
                         </div>
                     </div>
                     
-                    <!-- RIGHT COLUMN: CERTIFICATES (Training History) -->
-                    <div data-aos="fade-left">
-                        <!-- CHANGED HEADLINE HERE -->
-                        <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                            <i data-lucide="award" class="text-secondary"></i> <span class="text-gradient">Certificates</span>
-                        </h2>
-                        <p class="text-gray-400 mb-12">Professional development and short-form certifications.</p>
-
-                        <div class="space-y-6">
-                            
-                            <!-- CERTIFICATE 3 (Business Analysis) -->
-                            <a href="YOUR_BUSINESS_ANALYSIS_CERT_URL" target="_blank" class="block">
-                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
-                                    <div>
-                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Business Analysis</h4>
-                                        <p class="text-xs text-gray-400">Microsoft & LinkedIn (2025)</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
-                                </div>
-                            </a>
-                            
-                            <!-- CERTIFICATE 4 (Data Analysis - Short Form) -->
-                            <a href="YOUR_DATA_ANALYSIS_MICROSOFT_CERT_URL" target="_blank" class="block">
-                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
-                                    <div>
-                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Data Analysis</h4>
-                                        <p class="text-xs text-gray-400">Microsoft & LinkedIn (2025)</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
-                                </div>
-                            </a>
-                            
-                            <!-- CERTIFICATE 5 (Leadership & HR) -->
-                            <a href="YOUR_LEADERSHIP_CERT_URL" target="_blank" class="block">
-                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
-                                    <div>
-                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Leadership & HR</h4>
-                                        <p class="text-xs text-gray-400">Microsoft & LinkedIn (2025)</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
-                                </div>
-                            </a>
-
-                            <!-- CERTIFICATE 6 (Project Management) -->
-                            <a href="YOUR_PROJECT_MANAGEMENT_CERT_URL" target="_blank" class="block">
-                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
-                                    <div>
-                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Project Management</h4>
-                                        <p class="text-xs text-gray-400">Microsoft & LinkedIn (2025)</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
-                                </div>
-                            </a>
-
-                            <!-- CERTIFICATE 7 (Others) -->
-                            <a href="YOUR_OTHERS_CERT_URL" target="_blank" class="block">
-                                <div class="glass-card p-4 rounded-xl flex items-center justify-between group hover:bg-white/5 cursor-pointer">
-                                    <div>
-                                        <h4 class="font-bold text-white group-hover:text-secondary transition-colors">Others (Strategic Planning, Process Mngmt)</h4>
-                                        <p class="text-xs text-gray-400">LinkedIn & GitHub (2025)</p>
-                                    </div>
-                                    <i data-lucide="external-link" class="w-5 h-5 text-gray-500 group-hover:text-white"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    <!-- REMOVED: RIGHT COLUMN - CERTIFICATES -->
 
                 </div>
              </div>
+        </section>
+        
+        <!-- NEW CREDENTIALS SECTION -->
+        <section id="credentials" class="py-24 bg-darkbg relative">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Digital <span class="text-gradient">Credentials</span></h2>
+                    <p class="text-gray-400">Recognitions and verified course completions.</p>
+                </div>
+
+                <!-- CHANGED GRID: grid-cols-2 md:grid-cols-3 -> grid-cols-2 md:grid-cols-4 -->
+                <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+                    
+                    <!-- Credential Card 1 (Placeholder) -->
+                    <a href="https://www.linkedin.com/learning/certificates/e45a0224a87a0782dc970ad63c68cf230f06940d3f457b717b7ba53c92504c5f" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://i.imgur.com/9aTKcOg.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Agile PM Professional by Atlassian</p>
+                    </a>
+                    
+                    <!-- Credential Card 2 (Placeholder) -->
+                    <a href="https://www.linkedin.com/learning/certificates/780dce4e258cefdfd9b5f598132eb526abcfcb6d6c5b41d6741726f87f7fef70" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://i.imgur.com/N5xeSWG.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Succeeding as a New Manager</p>
+                    </a>
+                    
+                    <!-- Credential Card 3 (Placeholder) -->
+                    <a href="https://www.linkedin.com/learning/certificates/3407cf76378e013a53c7366157bface658e167da32f86b691a0bed285295e5e5?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BGADSG%2FWAT3O10o9s5Sg%2BaQ%3D%3D" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://i.imgur.com/CoCwtli.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Process Improvement & Excellence</p>
+                    </a>
+
+                    <!-- Credential Card 4 (Placeholder) -->
+                    <a href="https://coursera.org/share/c0e88c85d55c1f49b184c79d9c232771" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://i.imgur.com/P0Lf4Nq.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Business Analysis by Coursera</p>
+                    </a>
+                    
+                    <!-- Credential Card 5 (Placeholder - NEW) -->
+                    <a href="https://www.linkedin.com/learning/certificates/8555c5807f07be6d7edfa532a80d3d0809e8b09a8040e2ff97e846634a2b26d6?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BMCXn3z0uQZqlWz1uKc4Opw%3D%3D" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="500">
+                        <img src="https://i.imgur.com/8eZkwBA.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Business Analysis by Microsoft</p>
+                    </a>
+
+                    <!-- Credential Card 6 (Placeholder - NEW) -->
+                    <a href="https://www.linkedin.com/learning/certificates/a27719a32efaa9fc90bcd535061ee0c49927a436e4346120be9f67f6d434a7b3?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BEoRWnfZtTomY%2FJRMCErZyg%3D%3D" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="600">
+                        <img src="https://i.imgur.com/D5UNAru.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Data Analysis by Microsoft</p>
+                    </a>
+                     
+                    <!-- Credential Card 7 (Placeholder - NEW) -->
+                    <a href="https://www.linkedin.com/learning/certificates/840d7d829a520fb4d6481cdef5ee5e86164c1fcd8a9bda8d432af25357b2580b" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="700">
+                        <img src="https://i.imgur.com/Ja7UauY.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center"> Dashboards and Data Viz in Power BI</p>
+                    </a>
+                    
+                    <!-- Credential Card 8 (Placeholder - NEW) -->
+                    <a href="YOUR_LINKEDIN_CERT_URL_8" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="800">
+                        <img src="https://i.imgur.com/rHl5kY6.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Power BI Data Analyst Associate PL300 Cert Prep</p>
+                    </a>
+                    
+                    <!-- Credential Card 9 (Placeholder - NEW) -->
+                    <a href="https://www.linkedin.com/learning/certificates/fa2404d2fb1f79628b963dbee23edf80f9903d66de04181faf7386ce24514187?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BGADSG%2FWAT3O10o9s5Sg%2BaQ%3D%3D" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="900">
+                        <img src="https://i.imgur.com/aLHKmxk.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">SQL Essential Training</p>
+                    </a>
+
+                    <!-- Credential Card 10 (Placeholder - NEW) -->
+                    <a href="https://www.linkedin.com/learning/certificates/b82c5b6ef0be63308398bb7c8623595b90df1e1147cecf413abf438785a33a0e?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BGADSG%2FWAT3O10o9s5Sg%2BaQ%3D%3D" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="1000">
+                        <img src="https://i.imgur.com/rj0shsw.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Python for Data Analysis</p>
+                    </a>
+                     
+                    <!-- Credential Card 11 (Placeholder - NEW) -->
+                    <a href="https://www.linkedin.com/learning/certificates/fa7c32b0d79c43b17afc55bf4a6508f16b8d55594c39ce5459f9c130bbf3572a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BvoFqFUuUQquj%2Fyh50fxXeA%3D%3D" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="1100">
+                        <img src="https://i.imgur.com/kuef4Ay.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">GitHub</p>
+                    </a>
+
+                    <!-- Credential Card 12 (Placeholder - NEW) -->
+                    <a href="https://www.linkedin.com/learning/certificates/90d855f9556b2bf068937ca3d553d9696480f22800f30863af4b5f01197a21bd" target="_blank" class="group block glass-card p-4 rounded-xl hover:bg-white/5 transition-colors duration-300" data-aos="fade-up" data-aos-delay="1200">
+                        <img src="https://i.imgur.com/BMsW6T0.jpeg" alt="LinkedIn Course Credential" class="cert-image">
+                        <p class="text-sm font-semibold text-white mt-3 text-center">Adobe Premiere Pro</p>
+                    </a>
+                </div>
+            </div>
         </section>
 
         <section id="contact" class="py-24 bg-gradient-to-b from-darkbg to-black relative">
